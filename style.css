@@ -1,0 +1,425 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100svh;
+    margin: 0;
+    padding: clamp(12px, 4vw, 32px) 16px;
+    align-items: safe center;
+    justify-content: center;
+    background-color: #fce8ec;
+    background-image:
+        url("corazones.svg"),
+        radial-gradient(ellipse at 15% 20%, #fff8f7 0, transparent 34%),
+        radial-gradient(ellipse at 85% 78%, #f4bfd0 0, transparent 38%),
+        linear-gradient(135deg, #fce8ec, #f8dce8 50%, #fcefe8);
+    background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+    background-size: 220px 220px, cover, cover, cover;
+    background-attachment: fixed;
+    color: #593944;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.carta {
+    position: relative;
+    width: min(100%, 760px);
+    margin: auto;
+    padding: clamp(22px, 5vw, 48px) clamp(16px, 6vw, 64px);
+    overflow: hidden;
+    background-color: #fffaf5;
+    border: 1px solid #f2ccd4;
+    border-radius: 12px;
+    box-shadow: 0 12px 36px #884b5a24;
+    text-align: center;
+}
+
+.inicio {
+    position: relative;
+    display: grid;
+    min-height: 260px;
+    place-items: center;
+}
+
+.inicio[hidden] {
+    display: none;
+}
+
+.inicio button {
+    position: relative;
+    z-index: 1;
+}
+
+.corazon-decorativo {
+    position: absolute;
+    color: #d05d78;
+    animation: latir 1.3s ease-in-out infinite alternate;
+}
+
+.corazon-1 {
+    top: 20px;
+    left: 18%;
+    font-size: 2rem;
+}
+
+.corazon-2 {
+    top: 34px;
+    right: 20%;
+    color: #e991a5;
+    font-size: 1.5rem;
+}
+
+.corazon-3 {
+    top: 42%;
+    left: 8%;
+    font-size: 1.4rem;
+}
+
+.corazon-4 {
+    top: 48%;
+    right: 9%;
+    color: #bd4e6b;
+    font-size: 2.1rem;
+}
+
+.corazon-5 {
+    bottom: 22px;
+    left: 24%;
+    color: #e991a5;
+    font-size: 1.7rem;
+}
+
+.corazon-6 {
+    right: 27%;
+    bottom: 16px;
+    font-size: 1.3rem;
+}
+
+.corazon-7 {
+    top: 18%;
+    left: 38%;
+    color: #bd4e6b;
+    font-size: 1rem;
+}
+
+.corazon-8 {
+    right: 39%;
+    bottom: 12%;
+    color: #e991a5;
+    font-size: 1.1rem;
+}
+
+.lluvia-corazones {
+    position: fixed;
+    z-index: 10;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.corazon-volador {
+    position: absolute;
+    bottom: -40px;
+    left: var(--posicion-x);
+    color: var(--color-corazon);
+    font-size: var(--tamano-corazon);
+    animation: subir-corazon var(--duracion-corazon) ease-out var(--retraso-corazon) forwards;
+}
+
+h2 {
+    color: #a63f5c;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin: 0 0 10px;
+    font-weight: bold;
+}
+
+textarea {
+    display: block;
+    width: 100%;
+    min-height: 180px;
+    max-width: 100%;
+    margin-bottom: 18px;
+    padding: clamp(10px, 2.5vw, 14px);
+    resize: vertical;
+    border: 1px solid #dfa8b5;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #593944;
+    font: inherit;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.campo-mensaje {
+    min-height: 110px;
+}
+
+textarea:focus-visible,
+button:focus-visible {
+    outline: 3px solid #d05d78;
+    outline-offset: 3px;
+}
+
+button {
+    display: block;
+    margin: 18px auto 30px;
+    padding: 12px 22px;
+    min-height: 44px;
+    border: 0;
+    border-radius: 999px;
+    background-color: #bd4e6b;
+    color: #fff;
+    cursor: pointer;
+    font: inherit;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #9e3d58;
+}
+
+@keyframes latir {
+    from {
+        transform: scale(0.85);
+    }
+    to {
+        transform: scale(1.15);
+    }
+}
+
+@keyframes subir-corazon {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+    12% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate3d(var(--desvio-x), -110vh, 0) rotate(var(--rotacion));
+    }
+}
+
+.sobre {
+    display: flex;
+    justify-content: center;
+    margin: 12px auto 30px;
+}
+
+.sobre[hidden] {
+    display: none;
+}
+
+.sobre-cuerpo {
+    position: relative;
+    width: min(240px, 75vw);
+    aspect-ratio: 240 / 155;
+    height: auto;
+    perspective: 700px;
+}
+
+.papel,
+.solapa,
+.frente {
+    position: absolute;
+    inset: 0;
+}
+
+.papel {
+    z-index: 1;
+    top: 8px;
+    right: 8%;
+    left: 8%;
+    height: 90%;
+    background: #fffaf5;
+    border: 1px solid #dfa8b5;
+}
+
+.sobre.abierto .papel {
+    animation: salir-carta 0.9s 0.15s ease forwards;
+}
+
+.solapa {
+    z-index: 3;
+    background: #e991a5;
+    clip-path: polygon(0 0, 100% 0, 50% 58%);
+    transform-origin: top center;
+}
+
+.sobre.abierto .solapa {
+    animation: abrir-solapa 0.85s ease-in forwards;
+}
+
+.frente {
+    z-index: 2;
+    background: #d96d87;
+    clip-path: polygon(0 0, 50% 56%, 100% 0, 100% 100%, 0 100%);
+}
+
+.corazon-sobre {
+    position: absolute;
+    z-index: 4;
+    right: 0;
+    bottom: 24px;
+    left: 0;
+    color: #fff4f6;
+    font-size: 1.7rem;
+    text-align: center;
+}
+
+.sobre.abierto .corazon-sobre {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.contenido-carta[hidden] {
+    display: none;
+}
+
+.contenido-carta:not([hidden]) {
+    animation: aparecer 0.65s ease both;
+}
+
+.mensaje {
+    padding: clamp(14px, 4vw, 24px);
+    border: 1px dashed #dfa8b5;
+    border-radius: 8px;
+    background-color: #fff3f5;
+}
+
+.mensaje p {
+    min-height: 1.5em;
+    margin-bottom: 0;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    text-align: left;
+}
+
+.texto-mensaje-visible {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px dashed #dfa8b5;
+}
+
+.firma {
+    margin-top: 28px;
+    text-align: right;
+}
+
+.perrito {
+    margin-top: 28px;
+    color: #a63f5c;
+    text-align: center;
+}
+
+.perrito > span:first-child {
+    display: inline-block;
+    font-size: 4rem;
+    animation: saludar 1.2s ease-in-out infinite alternate;
+}
+
+.besos {
+    display: inline-block;
+    font-size: 1.5rem;
+    animation: flotar 1.5s ease-in-out infinite alternate;
+}
+
+.perrito p {
+    margin-bottom: 0;
+    font-style: italic;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+    }
+
+    .carta {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .inicio {
+        min-height: clamp(210px, 55vw, 260px);
+    }
+
+    .corazon-1 {
+        left: 12%;
+    }
+
+    .corazon-2 {
+        right: 12%;
+    }
+
+    .corazon-3 {
+        left: 4%;
+    }
+
+    .corazon-4 {
+        right: 4%;
+    }
+
+    .mensaje {
+        overflow-wrap: anywhere;
+    }
+}
+
+@keyframes saludar {
+    from {
+        transform: rotate(-8deg);
+    }
+    to {
+        transform: rotate(8deg);
+    }
+}
+
+@keyframes flotar {
+    from {
+        transform: translateY(4px);
+    }
+    to {
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes abrir-solapa {
+    to {
+        transform: rotateX(180deg);
+    }
+}
+
+@keyframes salir-carta {
+    to {
+        transform: translateY(-48px);
+    }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}

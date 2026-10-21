@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Una carta para Zamira</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="carta">
+        <div id="inicio" class="inicio">
+            <span class="corazon-decorativo corazon-1" aria-hidden="true">♥</span>
+            <span class="corazon-decorativo corazon-2" aria-hidden="true">♥</span>
+            <span class="corazon-decorativo corazon-3" aria-hidden="true">♥</span>
+            <span class="corazon-decorativo corazon-4" aria-hidden="true">♥</span>
+            <span class="corazon-decorativo corazon-5" aria-hidden="true">♥</span>
+            <span class="corazon-decorativo corazon-6" aria-hidden="true">♥</span>
+            <span class="corazon-decorativo corazon-7" aria-hidden="true">♥</span>
+            <span class="corazon-decorativo corazon-8" aria-hidden="true">♥</span>
+            <button id="empezar-carta" type="button">MI CARTITA DE AMOR 💌</button>
+        </div>
+        <div id="lluvia-corazones" class="lluvia-corazones" aria-hidden="true"></div>
+
+        <div id="formulario-carta" hidden>
+            <label for="texto-carta">Mi querida Zamira:</label>
+            <textarea id="texto-carta" rows="10" placeholder="Mi querida Zamira, quiero que sepas todo lo que siento por ti...">Hola, princesita hermosa de mi corazón.
+
+Te escribo esto porque a veces siento que me guardo muchas cosas y de verdad quería decirte lo mucho que te amo. Es que en serio me encantas, Zamira.
+
+Amo todo de vos,  Amo tu autismo XD jsjs y esa forma tan tuya, tan única y sincera con la que ves el mundo. Me encanta tu manera graciosa de decir las cosas y cómo te expresas, juro que me haces reír y sonreír como nadie más en la vida. Haces que todo sea mejor solo con ser vos.
+
+Y tengo que decírtelo: cuando traes el pelo recogido te ves hermosisima me enamoras mal, nunca cambies nada de todo eso que te hace tan especial. Me enamoras exactamente así, tal como sos.
+
+Gracias por estar en mi vida y por hacerme tan feliz. Te amo hoy y te voy a amar siempre.
+
+Para siempre tuyo muaaa</textarea>
+            
+            <label for="texto-mensaje">en resumen</label>
+            <textarea id="texto-mensaje" class="campo-mensaje" rows="4" placeholder="Una frase cortita y especial para Zamira...">sos la personita mas linda y especial para mi my love nunca cambies nada sos estupenda my monita linda</textarea>
+
+            <button id="mostrar-carta" type="button">Leer mi carta 💌</button>
+        </div>
+
+        <div id="sobre" class="sobre" role="img" aria-label="Un sobre rosa con una carta" hidden>
+            <div class="sobre-cuerpo">
+                <div class="papel"></div>
+                <div class="solapa"></div>
+                <div class="frente"></div>
+                <span class="corazon-sobre" aria-hidden="true">♥</span>
+            </div>
+        </div>
+
+        <div id="contenido-carta" class="contenido-carta" hidden>
+            <section class="mensaje" aria-live="polite">
+                <div class="texto-carta-visible">
+                    <h2>Mi carta para ti</h2>
+                    <p id="carta-escrita"></p>
+                </div>
+                <div class="texto-mensaje-visible">
+                    <h2>Un mensajito para ti</h2>
+                    <p id="mensaje-escrito"></p>
+                </div>
+            </section>
+
+            <p class="firma">Con todo mi amor,<br>Tu admirador 💕</p>
+
+            <div class="perrito" aria-label="Un perrito simpático mandando besos">
+                <span aria-hidden="true">🐶</span>
+                <span class="besos" aria-hidden="true">😘 💋 💕</span>
+                <p>¡Besitos para Zamira!</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
